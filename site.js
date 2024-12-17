@@ -31,7 +31,6 @@ class GreenTile extends Tile {
     }
 }
 
-
 class BonusTile extends Tile {
     constructor(value) {
         super("yellow");
@@ -55,6 +54,40 @@ class DestroyTile extends Tile {
     }
 }
 
-let tileGreen = new GreenTile();
-let tileBonus = new BonusTile();
-let tileDestroy = new DestroyTile();
+
+
+// Funktion til at generere tilfældige tiles
+function generateTiles() {
+    const app = document.getElementById("app");
+    app.innerHTML = ""; // Rydder containeren for at starte forfra
+
+    const tiles = [];
+
+    // Opret 7 grønne tiles
+    for (let i = 0; i < 7; i++) {
+        tiles.push(new GreenTile());
+    }
+
+    // Opret 1 gult tile
+    tiles.push(new BonusTile());
+
+    // Opret 1 rødt tile
+    tiles.push(new DestroyTile());
+
+    // Bland rækkefølgen tilfældigt
+    shuffleArray(tiles);
+
+    // Tilføj tiles til DOM
+    tiles.forEach(tile => app.appendChild(tile.DomElement));
+}
+
+// Fisher-Yates shuffle for at randomize tiles
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+// Kør genereringen ved load
+generateTiles();

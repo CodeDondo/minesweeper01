@@ -1,18 +1,29 @@
-.tile{
-    background-color: black;
-    width: 100px;
-    height: 100px;
+#app {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; /* Afstand mellem felterne */
+    width: 100%;
+    max-width: 600px; /* Giv en maks bredde, hvis du ønsker */
+    margin: 0 auto; /* Centrer grid'et */
 }
 
-.green{
+.tile {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    display: inline-block;
+    background-color: lightgrey;
+    border: 1px solid #000;
+}
+
+.green {
     background-color: green;
 }
 
-
-.yellow{
+.yellow {
     background-color: yellow;
 }
 
-.red{
+.red {
     background-color: red;
 }
